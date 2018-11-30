@@ -18,9 +18,14 @@ function convertTime(time: number): TimeFormat {
 
 function startStopWatch(seconds: number, minutes: number, hours: number) {
     let totalSeconds = (((hours * 60) + minutes) * 60) + seconds
-    setInterval(_ => {
+    let handle = setInterval(_ => {
+        if (totalSeconds > 0) {
         let time = convertTime(--totalSeconds)
-        console.log(time)
+            console.log(time)
+        } else {
+            clearInterval(handle)
+        }
+        
     
     }, 1000)
 }
