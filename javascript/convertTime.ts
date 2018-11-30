@@ -15,3 +15,13 @@ function convertTime(time: number): TimeFormat {
         hours
     }
 }
+
+function startStopWatch(seconds: number, minutes: number, hours: number) {
+    let totalSeconds = (((hours * 60) + minutes) * 60) + seconds
+    setInterval(_ => {
+        let time = convertTime(--totalSeconds)
+        console.log(time)
+    
+    }, 1000)
+}
+
